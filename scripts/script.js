@@ -45,7 +45,6 @@ const imagePopup = document.querySelector("#image-popup");
 const closePopupButtons = document.querySelectorAll(".popup__close-button");
 
 function addNewPlace(nameValue, linkValue) {
-  console.log(nameValue, linkValue);
   initialCards.push({
     name: nameValue,
     link: linkValue,
@@ -53,24 +52,28 @@ function addNewPlace(nameValue, linkValue) {
   newPlacePopup.classList.toggle("show");
 
   const cardTemplate = document.querySelector("#card-template").content;
-  console.log(cardTemplate);
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+
   cardElement.querySelector(".card__title").textContent = nameValue;
   cardElement.querySelector(".card__image").setAttribute("src", linkValue);
   cardElement.querySelector(".card__image").setAttribute("alt", nameValue);
-  cardElement.addEventListener("click", showImagePopup);
+
   cardElement
     .querySelector(".card__like-button")
     .addEventListener("click", function (event) {
       event.stopPropagation();
       event.target.classList.toggle("card__like-button-icon--active");
     });
+
   cardElement
     .querySelector(".card__delete-button")
     .addEventListener("click", function (event) {
       event.stopPropagation();
       deletePlace(event);
     });
+
+  cardElement.addEventListener("click", showImagePopup);
+
   cardsContainer.prepend(cardElement);
 }
 
@@ -84,12 +87,15 @@ function editProfile(nameValue, AboutMeValue) {
 }
 
 function showImagePopup(event) {
+  const imageElement = event.target
+    .closest(".card")
+    .querySelector(".card__image");
   imagePopup.classList.toggle("show");
   document
     .querySelector(".popup__image")
-    .setAttribute("src", event.target.getAttribute("src"));
+    .setAttribute("src", imageElement.getAttribute("src"));
   document.querySelector(".popup__image-caption").textContent =
-    event.target.getAttribute("alt");
+    imageElement.getAttribute("alt");
 }
 
 function showNewPlacePopup(event) {
