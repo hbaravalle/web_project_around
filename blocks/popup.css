@@ -55,8 +55,12 @@
   transition: padding-left 0.25s ease-in-out;
 }
 
+.popup__input-text-error {
+  border-bottom-color: red;
+}
+
 .popup__input-text:focus {
-  padding: 12px;
+  outline: none;
 }
 
 .popup__button-submit {
