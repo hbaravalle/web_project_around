@@ -1,3 +1,6 @@
+import ImagePopup from "./ImagePopup";
+import PopupWithForm from "./PopupWithForm";
+
 import avatar from "../images/avatar-image.jpg";
 
 function Main() {
@@ -36,6 +39,8 @@ function Main() {
           </div>
         </template>
       </section>
+      <ImagePopup />
+      <PoupWithForm />
     </main>
   );
 }
