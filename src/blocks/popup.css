@@ -10,7 +10,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.popup.show {
+.popup_is-opened {
   display: flex;
 }
 
@@ -52,7 +52,10 @@
   border-bottom: 1px solid #c4c4c4;
   padding: 12px 0;
   padding-left: 0;
-  transition: padding-left 0.25s ease-in-out;
+}
+
+.popup__input-file {
+  width: 100%;
 }
 
 .popup__input-text-error {

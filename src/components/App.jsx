@@ -9,15 +9,36 @@ function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
 
-  const handleEditAvatarClick = () => {};
-  const handleEditProfileClick = () => {};
-  const handleAddPlaceClick = () => {};
+  const handleEditAvatarClick = () => {
+    setIsEditAvatarPopupOpen((prevState) => !prevState);
+  };
+  const handleEditProfileClick = () => {
+    setIsEditProfilePopupOpen((prevState) => !prevState);
+  };
+  const handleAddPlaceClick = () => {
+    setIsAddPlacePopupOpen((prevState) => !prevState);
+  };
+  const handleCloseAllPopups = () => {
+    setIsEditProfilePopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
+  };
+
+  const mainProps = {
+    handleEditAvatarClick,
+    handleEditProfileClick,
+    handleAddPlaceClick,
+    handleCloseAllPopups,
+    isEditAvatarPopupOpen,
+    isEditProfilePopupOpen,
+    isAddPlacePopupOpen,
+  };
 
   return (
     <>
       <div className="container">
         <Header />
-        <Main />
+        <Main {...mainProps} />
         <Footer />
       </div>
     </>

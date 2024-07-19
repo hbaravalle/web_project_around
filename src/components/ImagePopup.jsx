@@ -3,8 +3,13 @@ function ImagePopup() {
     <div className="popup" id="image-popup">
       <div className="popup__content">
         <button className="popup__close-button"></button>
-        <img className="popup__image" src="" alt="" />
-        <small className="popup__image-caption"></small>
+        <form action="" className="popup__form" id="edit-avatar-form">
+          <h2 className="popup__title">Upload avatar</h2>
+          <input type="file" name="avatar" />
+          <button type="text" className="popup__button-submit">
+            Save
+          </button>
+        </form>
       </div>
     </div>
   );
